@@ -1,0 +1,135 @@
+.celebration-welcome {
+    position: fixed;
+    inset: 0;
+    z-index: 1000000000;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: #fffaf0;
+    background: radial-gradient(circle at 50% 35%, #b9365e 0%, #741b42 42%, #35132e 100%);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.77, 0, .175, 1);
+}
+
+.celebration-welcome--exiting {
+    opacity: 0;
+    transform: scale(1.06);
+    pointer-events: none;
+}
+
+.celebration-welcome__glow {
+    position: absolute;
+    width: min(72vw, 700px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 243, 176, .28);
+    border-radius: 50%;
+    box-shadow: 0 0 0 40px rgba(255, 243, 176, .04), 0 0 100px rgba(255, 207, 51, .12);
+    animation: welcome-breathe 5s ease-in-out infinite;
+}
+
+.celebration-welcome__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.celebration-welcome__eyebrow,
+.celebration-welcome__hint {
+    margin: 0;
+    font-family: "Sriracha", cursive;
+    letter-spacing: .08em;
+}
+
+.celebration-welcome__eyebrow {
+    color: #ffeeb0;
+    font-size: clamp(1rem, 2vw, 1.35rem);
+}
+
+.celebration-welcome__button {
+    border: 2px solid #fff3b0;
+    border-radius: 999px;
+    padding: 1.1rem 2rem;
+    color: #43142d;
+    background: #fff3b0;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .22);
+    cursor: pointer;
+    font-family: "Coiny", cursive;
+    font-size: clamp(1.05rem, 2.5vw, 1.55rem);
+    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+
+.celebration-welcome__button:hover,
+.celebration-welcome__button:focus-visible {
+    background: #fffbdc;
+    box-shadow: 0 20px 50px rgba(255, 207, 51, .25);
+    outline: none;
+    transform: translateY(-4px) scale(1.03);
+}
+
+.celebration-welcome__button:active {
+    transform: translateY(0) scale(.98);
+}
+
+.celebration-welcome__hint {
+    color: rgba(255, 250, 240, .7);
+    font-size: .9rem;
+}
+
+.celebration-welcome__confetti span {
+    position: absolute;
+    top: var(--particle-y);
+    left: var(--particle-x);
+    width: 10px;
+    height: 18px;
+    background: var(--particle-color);
+    border-radius: 3px;
+    opacity: .7;
+    transform: rotate(25deg);
+    animation: welcome-float 4s ease-in-out var(--particle-delay) infinite;
+}
+
+.celebration-welcome--exiting .celebration-welcome__confetti span {
+    animation: welcome-pop .75s ease-out var(--particle-delay) both;
+}
+
+.celebration-audio-control {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 100000001;
+    width: 2.8rem;
+    height: 2.8rem;
+    border: 1px solid rgba(255, 243, 176, .6);
+    border-radius: 50%;
+    color: #43142d;
+    background: #fff3b0;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+@keyframes welcome-breathe {
+    50% { transform: scale(1.04); opacity: .7; }
+}
+
+@keyframes welcome-float {
+    50% { transform: translateY(-14px) rotate(110deg); }
+}
+
+@keyframes welcome-pop {
+    to { transform: translate(0, -35vh) rotate(360deg) scale(.4); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .celebration-welcome,
+    .celebration-welcome__button { transition: none; }
+
+    .celebration-welcome__glow,
+    .celebration-welcome__confetti span { animation: none; }
+}
+
+@media (max-width: 480px) {
+    .celebration-welcome__button { padding-inline: 1.25rem; }
+}
