@@ -5,7 +5,7 @@ const LoveLetter = () => {
         {
             id: 1,
             name: "Your Bor",
-            msg: "And finally, today is all about you Happy Birthday 🩵🫂 to the girl who entered my life with just an \"Oi...\" and somehow became one of the most beautiful reasons behind my happiness. Thank you for being a part of my life, for choosing us and for making this journey so special. I don't know what tomorrow holds, but I know one thing — I want countless more birthdays with you, countless more memories and an endless journey together. Keep smiling, keep shining and keep being my favourite person. Happy Birthday, My Mystery Girl, My Favourite Person, My Love! ❤️🫂I love you more than words could ever explain. ❤️",
+            msg: "And finally, today is all about you Happy Birthday 🩵🫂 to the girl who entered my life with just an \"Oi...\" and somehow became one of the most beautiful reasons behind my happiness. Happy Birthday, My Mystery Girl, My Favourite Person, My Love! ❤️🫂I love you more than words could ever explain. ❤️",
         },
         {
             id: 2,
